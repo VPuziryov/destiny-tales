@@ -25,6 +25,7 @@ font-weight: 500;
 letter-spacing: 0.06em;
 margin-bottom: 18px;
 line-height: 1.2;
+text-align: center;
 }
 
 .author {
@@ -32,6 +33,7 @@ font-family: Inter, system-ui, -apple-system, sans-serif;
 font-size: 13px;
 color: rgba(255,255,255,0.45);
 margin-bottom: 36px;
+text-align: center;
 }
 
 p {
@@ -252,4 +254,14 @@ background: rgba(255,255,255,0.12);
   font-size: 15px;
   line-height: 1.6;
   color: rgba(215,217,221,0.9);
+}
+.fragment-content p:last-child {
+  margin-bottom: 28px;
+}
+/* ===== FIX VISUAL CENTER ===== */
+
+main.container > p {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
 }
