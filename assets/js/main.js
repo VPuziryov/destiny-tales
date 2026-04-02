@@ -28,18 +28,13 @@ if (path.startsWith(`/${targetLang}/`)) return;
 
 let page = '';
 
-if (targetLang === 'vn') {
-  page = ''; // VN всегда index
-} else {
-  if (path.includes('library')) {
-    page = 'library.html';
-  }
+if (targetLang !== 'vn' && path.includes('library')) {
+page = 'library.html';
 }
 
 window.location.replace(`/${targetLang}/${page}`);
 
 })();
-
 
 
 /* ===== CHECKOUT TRACKING ===== */
@@ -52,29 +47,16 @@ if (!btn) return;
 
 const product = btn.dataset.checkout;
 
-// ===== CUSTOM EVENTS (оставляем как есть) =====
-if (product === 'oskolki') {
-fbq('trackCustom', 'Checkout_Oskolki');
-}
+// ===== CUSTOM EVENTS =====
+fbq('trackCustom', `Checkout_${product.charAt(0).toUpperCase() + product.slice(1)}`);
 
-if (product === 'women') {
-fbq('trackCustom', 'Checkout_Women');
-}
-
-// ===== STANDARD EVENTS (добавляем) =====
-if (product === 'oskolki') {
+// ===== STANDARD EVENT =====
 fbq('track', 'InitiateCheckout', {
-content_name: 'oskolki'
+content_name: product
 });
-}
-
-if (product === 'women') {
-fbq('track', 'InitiateCheckout', {
-content_name: 'women'
-});
-}
 
 });
+
 
 /* ===== FRAGMENT TOGGLE ===== */
 document.addEventListener('click', function (e) {
@@ -85,8 +67,6 @@ if (!button) return;
 const content = button.nextElementSibling;
 if (!content) return;
 
-const isOpen = content.style.display === 'block';
-
-content.style.display = isOpen ? 'none' : 'block';
+content.style.display = (content.style.display === 'block') ? 'none' : 'block';
 
 });

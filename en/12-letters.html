@@ -121,6 +121,12 @@ opacity: 0.6;
 
 <body>
 
+<!-- ДОБАВИЛИ -->
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2268054160345157&ev=PageView&noscript=1"/>
+</noscript>
+
 <div class="container">
 
 <h1>12 letters that hold</h1>
@@ -146,9 +152,9 @@ Price — whatever feels right.
 </div>
 
 <a class="button"
-   id="buy-letters-en"
-   href="https://buy.stripe.com/28E00i6e03H14pU1pR6Na0d"
-   target="_blank">
+id="buy-letters-en"
+href="https://buy.stripe.com/28E00i6e03H14pU1pR6Na0d"
+target="_blank">
 OPEN LETTERS
 </a>
 
@@ -166,6 +172,8 @@ OPEN LETTERS
 
 <script>
 document.getElementById('buy-letters-en').addEventListener('click', function () {
+
+fbq('trackCustom', 'Checkout_12Letters');
 
 fbq('track', 'InitiateCheckout', {
 content_name: '12_letters'

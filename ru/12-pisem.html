@@ -42,7 +42,7 @@ fbq('track', 'PageView');
 <meta name="twitter:image" content="https://destiny-tales.ru/assets/img/og/quiet_letters_window_light-og.jpg">
 
 <style>
-/* ваш стиль без изменений */
+/* без изменений */
 body {
 margin: 0;
 background-color: #15181d;
@@ -122,6 +122,12 @@ opacity: 0.6;
 
 <body>
 
+<!-- ДОБАВИЛИ -->
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2268054160345157&ev=PageView&noscript=1"/>
+</noscript>
+
 <div class="container">
 
 <h1>12 писем, которые держат</h1>
@@ -147,9 +153,9 @@ PDF · 12 писем<br>
 </div>
 
 <a class="button"
-   id="buy-letters"
-   href="https://buy.stripe.com/28E00i6e03H14pU1pR6Na0d"
-   target="_blank">
+id="buy-letters"
+href="https://buy.stripe.com/28E00i6e03H14pU1pR6Na0d"
+target="_blank">
 ОТКРЫТЬ ПИСЬМА
 </a>
 
@@ -167,6 +173,8 @@ PDF · 12 писем<br>
 
 <script>
 document.getElementById('buy-letters').addEventListener('click', function () {
+
+fbq('trackCustom', 'Checkout_12Pisem');
 
 fbq('track', 'InitiateCheckout', {
 content_name: '12_pisem'
