@@ -1,3 +1,5 @@
+/* ===== BASE ===== */
+
 body {
 margin: 0;
 padding: 0;
@@ -8,15 +10,13 @@ color: #D7D9DD;
 font-family: Georgia, "Times New Roman", serif;
 }
 
-/* Контейнер */
-
 .container {
 max-width: 720px;
 padding: 72px 28px 120px;
 margin: 0 auto;
 }
 
-/* Заголовки */
+/* ===== TYPOGRAPHY ===== */
 
 h1 {
 font-family: "Cormorant Garamond", serif;
@@ -27,7 +27,12 @@ margin-bottom: 18px;
 line-height: 1.2;
 }
 
-/* Текст */
+.author {
+font-family: Inter, system-ui, -apple-system, sans-serif;
+font-size: 13px;
+color: rgba(255,255,255,0.45);
+margin-bottom: 36px;
+}
 
 p {
 font-size: 18px;
@@ -36,170 +41,198 @@ margin: 0 0 26px 0;
 color: rgba(215,217,221,0.88);
 }
 
-/* Книга (КЛЮЧЕВОЙ БЛОК) */
+.spacer {
+height: 28px;
+}
 
-.book {
+/* ===== INDEX (главная) ===== */
+
+.library-preview {
+display: block;
+max-width: 520px;
+width: 100%;
+
+margin: 60px auto 0;
+
+text-align: center;
+cursor: pointer;
+
+text-decoration: none;
+color: inherit;
+
+position: relative;
+z-index: 1;
+}
+
+.library-image {
+display: block;
+margin: 0 auto;
+
 width: 100%;
 max-width: 520px;
-margin: 0 auto 100px auto;
-}
 
-/* Заголовок книги */
+border-radius: 14px;
 
-.book-title {
-font-size: 22px;
-color: #F0F1F3;
-margin-bottom: 18px;
-}
+opacity: 0.82;
+filter: brightness(0.85) contrast(1.05);
 
-/* Обложка */
-
-.book-cover-small {
-display: block;
-width: 100%;
-border-radius: 10px;
-margin: 18px 0 28px 0;
+transition: all 0.4s ease;
 
 box-shadow:
-0 10px 25px rgba(0,0,0,0.35);
+0 10px 30px rgba(0,0,0,0.35);
 }
 
-/* Аннотация */
-
-.book-annotation {
-text-align: left;
+.library-preview:hover .library-image {
+opacity: 1;
+transform: scale(1.02);
 }
 
-.book-annotation p {
-font-size: 17px;
-line-height: 1.55;
-margin-bottom: 14px;
-}
-
-/* Кнопки */
-
-.button {
-display: inline-block;
-margin-top: 18px;
-font-size: 14px;
+.library-hint {
+margin-top: 14px;
+font-size: 12px;
 letter-spacing: 0.14em;
-color: #F0F1F3;
+color: rgba(255,255,255,0.45);
+}
+
+.library-preview:hover .library-hint {
+color: rgba(255,255,255,0.75);
+}
+
+/* ===== LANGUAGE SWITCH ===== */
+
+.lang-switch {
+position: fixed;
+bottom: 16px;
+right: 20px;
+font-size: 12px;
+opacity: 0.6;
+z-index: 9999;
+}
+
+.lang-switch a {
+margin-left: 8px;
 text-decoration: none;
-padding: 10px 18px;
-border: 1px solid #343841;
-transition: all 0.2s ease;
+color: inherit;
 }
 
-.button:hover {
-background-color: rgba(255,255,255,0.05);
-border-color: #3A3E45;
+.lang-switch a:hover {
+opacity: 1;
 }
 
-/* Fragment */
-
-.fragment-button {
-margin-top: 18px;
-border: 1px solid #2A2D33;
-padding: 10px 18px;
-background: transparent;
-color: #D7D9DD;
-cursor: pointer;
-}
-
-.fragment-content {
-display: none;
-margin-top: 24px;
-padding: 24px;
-background: #1C1F25;
-}
-
-/* Divider */
-
-.divider {
-height: 1px;
-background: linear-gradient(to right, transparent, #2A2D33, transparent);
-margin: 80px 0;
-}
-
-/* Footer */
-
-.site-footer {
-margin-top: 120px;
-margin-bottom: 40px;
-padding-top: 32px;
-border-top: 1px solid #2A2D33;
-font-size: 13px;
-color: #8E939A;
-text-align: center;
-}
-/* ===== CARD MODEL (library) ===== */
+/* ===== LIBRARY GRID ===== */
 
 .grid {
-  max-width: 640px;
-  margin: 40px auto;
-  padding: 0 16px;
+max-width: 640px;
+margin: 40px auto;
+padding: 0 16px;
 
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
+display: grid;
+grid-template-columns: 1fr;
+gap: 32px;
 }
 
 .card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 18px;
 
-  padding: 28px;
+padding: 28px;
 
-  display: flex;
-  flex-direction: column;
+display: flex;
+flex-direction: column;
 
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+box-shadow: 0 18px 40px rgba(0,0,0,0.35);
 
-  transition: all 0.25s ease;
+transition: all 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 50px rgba(0,0,0,0.45);
+transform: translateY(-4px);
+box-shadow: 0 24px 50px rgba(0,0,0,0.45);
 }
 
 .card h2 {
-  font-size: 22px;
-  margin-bottom: 16px;
+font-size: 22px;
+margin-bottom: 16px;
 }
 
 .card img {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 18px;
+width: 100%;
+border-radius: 12px;
+margin-bottom: 18px;
 }
 
 .card p {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 14px;
-  color: rgba(215,217,221,0.85);
+font-size: 15px;
+line-height: 1.6;
+margin-bottom: 14px;
+color: rgba(215,217,221,0.85);
 }
 
+/* ===== BUTTON ===== */
+
 .btn {
+margin-top: 18px;
+
+display: inline-block;
+text-align: center;
+
+padding: 12px 18px;
+border-radius: 12px;
+
+background: rgba(255,255,255,0.08);
+border: 1px solid rgba(255,255,255,0.15);
+
+color: #fff;
+text-decoration: none;
+
+transition: all 0.2s ease;
+}
+
+.btn:hover {
+background: rgba(255,255,255,0.15);
+}
+
+/* ===== SELECTION ===== */
+
+::selection {
+background: rgba(255,255,255,0.12);
+}
+/* ===== FRAGMENT (excerpt) ===== */
+
+.fragment-toggle {
   margin-top: 18px;
 
-  display: inline-block;
-  text-align: center;
-
-  padding: 12px 18px;
-  border-radius: 12px;
-
-  background: rgba(255,255,255,0.08);
+  background: transparent;
   border: 1px solid rgba(255,255,255,0.15);
 
-  color: #fff;
-  text-decoration: none;
+  padding: 10px 16px;
+
+  color: rgba(255,255,255,0.8);
+
+  font-size: 13px;
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
 
   transition: all 0.2s ease;
 }
 
-.btn:hover {
-  background: rgba(255,255,255,0.15);
+.fragment-toggle:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.05);
+}
+
+.fragment-content {
+  display: none;
+
+  margin-top: 20px;
+  padding: 20px;
+
+  background: rgba(255,255,255,0.03);
+  border-left: 2px solid rgba(255,255,255,0.15);
+
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(215,217,221,0.9);
 }
