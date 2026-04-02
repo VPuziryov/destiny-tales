@@ -1,443 +1,177 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}
-(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2268054160345157');
-fbq('track', 'PageView');
-</script>
-
-
   <meta charset="UTF-8">
-  <title>Library · Destiny Tales</title>
-
+  <title>Shelf — Destiny Tales</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Books and fragments of memory. What remains when there is no rush anymore.">
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://destiny-tales.ru/en/library.html">
-
-  <!-- Hreflang -->
-  <link rel="alternate" hreflang="ru" href="https://destiny-tales.ru/ru/library.html">
-  <link rel="alternate" hreflang="en" href="https://destiny-tales.ru/en/library.html">
-  <link rel="alternate" hreflang="vi" href="https://destiny-tales.ru/vn/">
-  <link rel="alternate" hreflang="x-default" href="https://destiny-tales.ru/">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://destiny-tales.ru/en/library.html">
-  <meta property="og:title" content="Library · Destiny Tales">
-  <meta property="og:description" content="For those who feel there is still something left.">
-  <meta property="og:image" content="https://destiny-tales.ru/assets/img/og/quiet_library_window_light-og.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  <!-- Twitter / X -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Library · Destiny Tales">
-  <meta name="twitter:description" content="For those who feel there is still something left.">
-  <meta name="twitter:image" content="https://destiny-tales.ru/assets/img/og/quiet_library_window_light-og.jpg">
-
-  <style>
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      background-color: #15181d;
-      color: #D7D9DD;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .container {
-      max-width: 760px;
-      padding: 56px 24px 140px;
-      margin: 0 auto;
-    }
-
-    h1 {
-      font-size: 24px;
-      letter-spacing: 2px;
-      font-weight: normal;
-      color: #F0F1F3;
-      margin-bottom: 28px;
-    }
-
-    .shelf-buttons {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px 20px;
-      margin-bottom: 56px;
-    }
-
-    .shelf-buttons a {
-      font-size: 14px;
-      letter-spacing: 1.6px;
-      color: #F0F1F3;
-      text-decoration: none;
-      padding: 14px 18px;
-      border: 1px solid #343841;
-      transition: all 0.2s ease;
-      white-space: normal;
-      text-align: center;
-      line-height: 1.25;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 64px;
-    }
-
-    .shelf-buttons a:hover {
-      background-color: rgba(255,255,255,0.05);
-      border-color: #3A3E45;
-    }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(to right, transparent, #2A2D33, transparent);
-      margin: 72px 0;
-    }
-
-    .book { margin-bottom: 100px; }
-
-    .book-title {
-      font-size: 22px;
-      color: #F0F1F3;
-      margin-bottom: 22px;
-    }
-
-    .book-annotation p {
-      font-size: 17px;
-      line-height: 1.55;
-      margin: 0 0 16px 0;
-    }
-
-    .fragment-button {
-      background: transparent;
-      color: #D7D9DD;
-      border: 1px solid #2A2D33;
-      padding: 12px 26px;
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      cursor: pointer;
-    }
-
-    .fragment-button:hover {
-      color: #F0F1F3;
-      border-color: #3A3E45;
-    }
-
-    .fragment-content {
-      display: none;
-      margin-top: 28px;
-      padding: 32px;
-      background: #1C1F25;
-      border-left: 2px solid #2A2D33;
-    }
-
-    .fragment-content blockquote {
-      margin: 0;
-      font-size: 15px;
-      line-height: 1.65;
-      color: #E3E5E8;
-    }
-
-    .access {
-      margin-top: 34px;
-      font-size: 16px;
-    }
-
-    .button {
-      display: inline-block;
-      margin-top: 18px;
-      font-size: 15px;
-      letter-spacing: 2px;
-      color: #F0F1F3;
-      text-decoration: none;
-      padding: 10px 18px;
-      border: 1px solid #343841;
-    }
-
-    .button:hover {
-      background-color: rgba(255,255,255,0.05);
-      border-color: #3A3E45;
-    }
-
-    .back {
-      margin-top: 40px;
-    }
-
-    .back a {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      color: #8E939A;
-      opacity: 0.6;
-      text-decoration: none;
-    }
-
-    .back a:hover { opacity: 0.85; }
-
-    .site-footer {
-      margin-top: 120px;
-      margin-bottom: 40px;
-      padding-top: 32px;
-      border-top: 1px solid #2A2D33;
-      font-size: 13px;
-      color: #8E939A;
-      text-align: center;
-    }
-
-    .site-footer a {
-      color: #8E939A;
-      text-decoration: none;
-      border-bottom: 1px solid #2A2D33;
-    }
-
-    .lang-switch {
-      position: fixed;
-      bottom: 16px;
-      right: 20px;
-      font-size: 12px;
-      opacity: 0.6;
-      z-index: 1000;
-    }
-
-    .lang-switch a {
-      margin-left: 8px;
-      text-decoration: none;
-      color: inherit;
-    }
-    .lang-switch a:hover { opacity: 1; }
-  </style>
-
-  <script>
-    function toggleFragment(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
-
+  <link rel="stylesheet" href="/assets/css/base.css">
 </head>
 
 <body>
-    
-    <noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2268054160345157&ev=PageView&noscript=1"/>
-</noscript>
 
+<main class="container">
 
-<div class="container">
+  <h1>SHELF</h1>
 
-  <div id="shelf"></div>
-  <h1>LIBRARY</h1>
+  <div class="grid">
 
-  <div class="shelf-buttons">
-    <a href="#fragments">FRAGMENTS OF AN UNFULFILLED FATE</a>
-    <a href="#asia-women">ASIA · WOMEN</a>
-  </div>
+<!-- BOOK 1 -->
+<div class="card" id="oskolki">
 
-  <div class="divider"></div>
+  <h2>Fragments of an Unlived Fate</h2>
 
-  <!-- BOOK: FRAGMENTS -->
-  <div class="book" id="fragments">
-    <div class="book-title">Fragments of an Unfulfilled Fate</div>
+  <img src="/assets/img/books/oskolki-cover.jpg">
 
-    <div class="book-annotation">
-      <p>Sometimes life does not break.<br>
-      It simply fails to come together — in parts, in decisions, in moments.</p>
+  <p>
+    Sometimes life doesn’t break.<br>
+    It simply doesn’t come together — piece by piece, decision by decision, moment by moment.
+  </p>
 
-      <p>Without drama.<br>
-      Without a final point.</p>
+  <p>
+    Without drama.<br>
+    Without a final point.
+  </p>
 
-      <p>There are places where you could have turned.<br>
-      There are seconds when the choice is already made,<br>
-      even though you have not realized it yet.</p>
+  <p>
+    There are places where you could have turned.<br>
+    Seconds when the choice was already made,<br>
+    even if you didn’t realize it yet.
+  </p>
 
-      <p>This book is neither a story nor an explanation.<br>
-      It is three worlds where everything begins lightly:<br>
-      depth, heat, love.<br>
-      And in each of them, you do not pay immediately.</p>
+<button class="fragment-toggle">EXCERPT</button>
 
-      <p>There are no heroes and no villains here.<br>
-      There are scenes that return later —<br>
-      already without scenery.</p>
+<div class="fragment-content">
+<p>At some point you begin to understand:<br>
+it’s not that the story ended.<br>
+It’s that it never came together.</p>
 
-      <p>Open the fragment.<br>
-      What follows is the moment after which<br>
-      you want to read on,<br>
-      just to understand what stayed with you.</p>
-    </div>
+<p>Everything felt like life.<br>
+Depth, where choices were made without thinking they could be final.<br>
+Heat, where illusions felt like freedom.<br>
+Love — so beautiful that you wanted to believe in it more than in yourself.</p>
 
-    <button class="fragment-button" onclick="toggleFragment('frag-fragments')">FRAGMENT</button>
+<p>There were no catastrophes in these stories.<br>
+No villains.<br>
+Almost no mistakes.</p>
 
-    <div class="fragment-content" id="frag-fragments">
-      <blockquote>
-        <p>At some point you begin to understand:<br>
-        it is not that the story ended.<br>
-        It is that it never came together.</p>
+<p>There were moments when you went a little further than you should have.<br>
+Or stopped — too early.</p>
 
-        <p>Everything felt like life.<br>
-        Depth, where you made choices without thinking they could be final.<br>
-        Heat, where illusions looked like freedom.<br>
-        Love — so beautiful that you wanted to believe in it more than in yourself.</p>
+<p>The strangest thing is that the women in these stories don’t disappear.<br>
+Something else does:<br>
+the context in which you mattered,<br>
+the role you were expected to play,<br>
+the feeling that it was all leading somewhere.</p>
 
-        <p>There were no catastrophes in these stories.<br>
-        No villains.<br>
-        Almost no mistakes.</p>
+<p>And when the scenery fades,<br>
+what remains is silence.<br>
+Not empty.<br>
+Just honest.</p>
 
-        <p>There were moments when you went a little further than you should have.<br>
-        Or stopped — too early.</p>
+<p>And at some point it becomes clear:<br>
+nothing broke.<br>
+It simply never happened.</p>
 
-        <p>The strangest thing is that the women in these stories do not disappear.<br>
-        Something else disappears:<br>
-        the context in which you were needed,<br>
-        the role you were expected to play,<br>
-        the feeling that all of this was leading somewhere.</p>
+<p>From these pauses<br>
+the fragments of an unlived fate are made.</p>
+</div>
 
-        <p>And when the scenery is gone,<br>
-        silence remains.<br>
-        Not empty.<br>
-        Just honest.</p>
-
-        <p>It is from such pauses<br>
-        that the fragments of an unfulfilled fate are formed.</p>
-      </blockquote>
-    </div>
-
-    <div class="access">
-      <strong>Author’s edition</strong><br>
-      PDF · 6.99 EUR
-    </div>
-
-    <a class="button" href="https://buy.stripe.com/bJeaEWdGs91lcWqfgH6Na0b" 
-    data-checkout="oskolki"
-    target="_blank">GET ACCESS</a>
-
-    <div class="back"><a href="#shelf">↑ BACK TO LIBRARY</a></div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- BOOK: ASIA -->
-  <div class="book" id="asia-women">
-    <div class="book-title">Asia. Women</div>
-
-    <div class="book-annotation">
-      <p>Asia always begins the same way.<br>
-      With heat, smells, movement —<br>
-      and the feeling that everything can be different here.</p>
-
-      <p>No unnecessary questions are asked here.<br>
-      It is easy to be who you once wanted to appear as:<br>
-      free, interesting, needed.</p>
-
-      <p>The first conversations are simple.<br>
-      The first women are warm.<br>
-      The first decisions are quick.</p>
-
-      <p>And at some point you catch yourself thinking<br>
-      that you are back on stage.<br>
-      You are expected. You are welcome.<br>
-      Your silence is taken for depth,<br>
-      your gestures for generosity,<br>
-      your departure for mystery.</p>
-
-      <p>This book is not about exoticism<br>
-      and not about love.</p>
-
-      <p>It is about the moment<br>
-      when Asia stops being a background<br>
-      and becomes a mirror.<br>
-      When you suddenly realize:<br>
-      you are not paying with money —<br>
-      you are paying with yourself.</p>
-
-      <p>There are no answers here.<br>
-      But there are points<br>
-      after which the illusion of “starting over”<br>
-      no longer works the same way.</p>
-
-      <p>The fragment is not a promise.<br>
-      It is a test.</p>
-    </div>
-
-    <button class="fragment-button" onclick="toggleFragment('frag-asia')">FRAGMENT</button>
-
-    <div class="fragment-content" id="frag-asia">
-      <blockquote>
-        <p>Everything in Asia happens faster.<br>
-        Not because people rush — on the contrary,<br>
-        no one is in a hurry.</p>
-
-        <p>You simply become lighter.<br>
-        The past holds you less,<br>
-        the future binds you less.</p>
-
-        <p>Here you can disappear for several days —<br>
-        and it will not seem strange.<br>
-        Here you can return —<br>
-        and be accepted<br>
-        as if you never left.</p>
-
-        <p>I remember one evening.<br>
-        We were sitting on plastic chairs by the road,<br>
-        drinking something sweet with ice,<br>
-        and she calmly spoke about her family —<br>
-        without complaints, without strain.</p>
-
-        <p>I listened and caught myself on a strange feeling:<br>
-        I felt good not because I was next to a woman,<br>
-        but because I was back in context.</p>
-
-        <p>I was needed again.<br>
-        Not as a person —<br>
-        but as movement.<br>
-        As a possibility.</p>
-
-        <p>And then, for the first time, a question appears<br>
-        that is never asked out loud:</p>
-
-        <p>what will remain<br>
-        if this city,<br>
-        this evening,<br>
-        and this woman disappear at the same time?</p>
-      </blockquote>
-    </div>
-
-    <div class="access">
-      <strong>Author’s edition</strong><br>
-      PDF + EPUB + art additions · 17 EUR
-    </div>
-
-    <a class="button" href="https://buy.stripe.com/dRmeVc8m81yT8Ga0lN6Na09" 
-    data-checkout="women"
-    target="_blank">GET ACCESS</a>
-
-    <div class="back"><a href="#shelf">↑ BACK TO LIBRARY</a></div>
-  </div>
+  <a class="btn"
+     data-checkout="oskolki"
+     href="https://buy.stripe.com/bJeaEWdGs91lcWqfgH6Na0b"
+     target="_blank">
+    GET THE BOOK
+  </a>
 
 </div>
 
-<footer class="site-footer">
-  © <a href="https://puziryov.com" target="_blank">Vitaly Puziryov</a>
-</footer>
+<!-- BOOK 2 -->
+<div class="card" id="asia-women">
+
+  <h2>Asia. Women</h2>
+
+  <img src="/assets/img/books/women-cover.jpg">
+
+  <p>
+    Asia always begins the same way.<br>
+    With heat, запахи, movement —<br>
+    and the feeling that everything can be different here.
+  </p>
+
+  <p>
+    Here it’s easy to become<br>
+    who you once wanted to be.
+  </p>
+
+  <p>
+    But at some point<br>
+    it stops being a background<br>
+    and becomes a mirror.
+  </p>
+
+  <button class="fragment-toggle">EXCERPT</button>
+
+<div class="fragment-content">
+  <p>In Asia, everything happens faster.<br>
+  Not because people rush — on the contrary,<br>
+  they are in no hurry at all.</p>
+
+  <p>You simply become lighter.<br>
+  Less tied to the past,<br>
+  less bound to the future.</p>
+
+  <p>Here you can disappear for a few days —<br>
+  and it won’t seem strange.<br>
+  You can return again —<br>
+  and be welcomed<br>
+  as if you had never left.</p>
+
+  <p>I remember one evening.<br>
+  We sat on plastic chairs by the road,<br>
+  drinking something sweet with ice,<br>
+  and she calmly spoke about her family —<br>
+  without complaints, without drama.</p>
+
+  <p>I listened and caught a strange feeling:<br>
+  I felt good not because I was with a woman,<br>
+  but because I was back in context.</p>
+
+  <p>I was needed again.<br>
+  Not as a person —<br>
+  but as movement.<br>
+  As possibility.</p>
+
+  <p>And for the first time, a question appears<br>
+  that is never asked out loud:</p>
+
+  <p>what will remain,<br>
+  if this city,<br>
+  this evening<br>
+  and this woman disappear at once?</p>
+</div>
+
+  <a class="btn"
+     data-checkout="women"
+     href="https://buy.stripe.com/dRmeVc8m81yT8Ga0lN6Na09"
+     target="_blank">
+    GET THE BOOK
+  </a>
+
+</div>
+
+  </div>
+
+</main>
 
 <nav class="lang-switch">
-  <a href="/ru/" data-lang="ru">RU</a>
-  <a href="/en/" data-lang="en">EN</a>
-  <a href="/vn/" data-lang="vn">VN</a>
+  <a href="/ru/library.html" data-lang="ru">RU</a>
+  <a href="/en/library.html" data-lang="en">EN</a>
+  <a href="/vn/library.html" data-lang="vn">VN</a>
 </nav>
 
-<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/main.js"></script>
 
 </body>
 </html>
