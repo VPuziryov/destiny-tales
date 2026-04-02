@@ -85,3 +85,15 @@ content.style.display = (content.style.display === 'block') ? 'none' : 'block';
   }, 7000);
 
 })();
+// ===== LANGUAGE SAVE =====
+document.addEventListener('click', function (e) {
+
+  const link = e.target.closest('[data-lang]');
+  if (!link) return;
+
+  const lang = link.dataset.lang;
+  if (!lang) return;
+
+  localStorage.setItem('dt_lang', lang);
+
+});
