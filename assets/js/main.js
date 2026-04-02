@@ -28,8 +28,12 @@ if (path.startsWith(`/${targetLang}/`)) return;
 
 let page = '';
 
-if (path.includes('library')) {
-page = 'library.html';
+if (targetLang === 'vn') {
+  page = ''; // VN всегда index
+} else {
+  if (path.includes('library')) {
+    page = 'library.html';
+  }
 }
 
 window.location.replace(`/${targetLang}/${page}`);
