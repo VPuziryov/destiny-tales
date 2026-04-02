@@ -24,19 +24,18 @@ targetLang = 'ru';
 const path = window.location.pathname;
 
 // уже на нужном языке — ничего не делаем
-if (path.startsWith(/${targetLang}/)) return;
+if (path.startsWith(`/${targetLang}/`)) return;
 
-// определяем страницу
 let page = '';
 
 if (path.includes('library')) {
 page = 'library.html';
 }
 
-// редирект
-window.location.replace(/${targetLang}/${page});
+window.location.replace(`/${targetLang}/${page}`);
 
 })();
+
 
 
 /* ===== CHECKOUT TRACKING ===== */
