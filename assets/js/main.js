@@ -70,3 +70,18 @@ if (!content) return;
 content.style.display = (content.style.display === 'block') ? 'none' : 'block';
 
 });
+(function () {
+
+  if (typeof fbq !== 'function') return;
+
+  const path = window.location.pathname;
+
+  // только библиотека
+  if (!path.includes('library')) return;
+
+  setTimeout(function () {
+    fbq('trackCustom', 'ContentView_7s_Library');
+    console.log('ContentView_7s_Library fired');
+  }, 7000);
+
+})();
