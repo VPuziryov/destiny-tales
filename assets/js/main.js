@@ -1,23 +1,43 @@
-/* ===== LANGUAGE SAVE ===== */
-document.addEventListener('click', function (e) {
-const lang = e.target.closest('[data-lang]');
-if (lang) {
-localStorage.setItem('dt_lang', lang.dataset.lang);
-}
-});
+/* ===== LANGUAGE AUTO-DETECT ===== */
 
-/* ===== FB PIXEL (7 sec on library) ===== */
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
 
-if (typeof fbq !== 'function') return;
+const savedLang = localStorage.getItem('dt_lang');
+if (savedLang) return;
 
-if (window.location.pathname.includes('library')) {
-setTimeout(function () {
-fbq('trackCustom', 'ContentView_7s_Library');
-}, 7000);
+const lang = (navigator.language || '').toLowerCase();
+
+let targetLang = 'en';
+
+// Вьетнам
+if (lang.startsWith('vi')) {
+targetLang = 'vn';
 }
 
-});
+// бывший СССР
+const ruLangs = ['ru', 'uk', 'be', 'kk', 'uz', 'ky', 'tg', 'hy', 'az'];
+
+if (ruLangs.some(l => lang.startsWith(l))) {
+targetLang = 'ru';
+}
+
+const path = window.location.pathname;
+
+// уже на нужном языке — ничего не делаем
+if (path.startsWith(/${targetLang}/)) return;
+
+// определяем страницу
+let page = '';
+
+if (path.includes('library')) {
+page = 'library.html';
+}
+
+// редирект
+window.location.replace(/${targetLang}/${page});
+
+})();
+
 
 /* ===== CHECKOUT TRACKING ===== */
 document.addEventListener('click', function (e) {
