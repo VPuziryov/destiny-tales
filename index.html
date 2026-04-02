@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Destiny Tales</title>
+  <script>
+    (function () {
+      const savedLang = localStorage.getItem('dt_lang');
+      if (savedLang) {
+        location.replace('/' + savedLang + '/');
+        return;
+      }
+
+      const lang = (navigator.language || '').toLowerCase();
+
+      if (lang.startsWith('vi')) {
+        location.replace('/vn/');
+        return;
+      }
+
+      const ruLangs = ['ru','uk','be','kk','uz','ky','tg','tk','hy','az','ka','mo'];
+      for (let i = 0; i < ruLangs.length; i++) {
+        if (lang.startsWith(ruLangs[i])) {
+          location.replace('/ru/');
+          return;
+        }
+      }
+
+      location.replace('/en/');
+    })();
+  </script>
+</head>
+<body></body>
+</html>
