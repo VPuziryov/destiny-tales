@@ -72,17 +72,15 @@ document.addEventListener('click', function (e) {
 
   if (typeof fbq !== 'function') return;
 
-  const path = window.location.pathname;
+  const path = window.location.pathname.toLowerCase();
 
-  // только VN страницы
-  if (!path.includes('/vn/')) return;
+  // ловим ВСЕ варианты VN
+  if (!path.startsWith('/vn')) return;
 
   setTimeout(function () {
     fbq('trackCustom', 'ContentView_7s_VNBook');
     console.log('ContentView_7s_VNBook fired');
   }, 7000);
-
-})();
 
 })();
 
