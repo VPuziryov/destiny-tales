@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,10 @@
   <meta name="robots" content="noindex, nofollow">
   <script>
     (function () {
+
       const savedLang = localStorage.getItem('dt_lang');
+
+      // если язык уже выбран — используем его
       if (savedLang) {
         location.replace('/' + savedLang + '/');
         return;
@@ -14,12 +17,9 @@
 
       const lang = (navigator.language || '').toLowerCase();
 
-      if (lang.startsWith('vi')) {
-        location.replace('/vn/');
-        return;
-      }
-
+      // RU и похожие
       const ruLangs = ['ru','uk','be','kk','uz','ky','tg','tk','hy','az','ka','mo'];
+
       for (let i = 0; i < ruLangs.length; i++) {
         if (lang.startsWith(ruLangs[i])) {
           location.replace('/ru/');
@@ -27,7 +27,9 @@
         }
       }
 
+      // всё остальное → EN
       location.replace('/en/');
+
     })();
   </script>
 </head>
