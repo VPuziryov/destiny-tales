@@ -67,6 +67,23 @@ document.addEventListener('click', function (e) {
     console.log('ContentView_7s_Library fired');
   }, 7000);
 
+  // ===== VN 7s TRACK =====
+(function () {
+
+  if (typeof fbq !== 'function') return;
+
+  const path = window.location.pathname;
+
+  // только VN страницы
+  if (!path.includes('/vn/')) return;
+
+  setTimeout(function () {
+    fbq('trackCustom', 'ContentView_7s_VNBook');
+    console.log('ContentView_7s_VNBook fired');
+  }, 7000);
+
+})();
+
 })();
 
 
