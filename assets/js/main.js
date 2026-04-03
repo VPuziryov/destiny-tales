@@ -67,14 +67,16 @@ document.addEventListener('click', function (e) {
     console.log('ContentView_7s_Library fired');
   }, 7000);
 
-  // ===== VN 7s TRACK =====
+})();
+
+
+// ===== VN 7s TRACK =====
 (function () {
 
   if (typeof fbq !== 'function') return;
 
   const path = window.location.pathname.toLowerCase();
 
-  // ловим ВСЕ варианты VN
   if (!path.startsWith('/vn')) return;
 
   setTimeout(function () {
@@ -83,17 +85,3 @@ document.addEventListener('click', function (e) {
   }, 7000);
 
 })();
-
-
-// ===== LANGUAGE SAVE (click) =====
-document.addEventListener('click', function (e) {
-
-  const link = e.target.closest('[data-lang]');
-  if (!link) return;
-
-  const lang = link.dataset.lang;
-  if (!lang) return;
-
-  localStorage.setItem('dt_lang', lang);
-
-});
