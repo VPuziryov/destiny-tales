@@ -1,45 +1,65 @@
+// ===== SET LANG FROM URL =====
+(function () {
+
+  const path = window.location.pathname;
+
+  if (path.startsWith('/ru/')) {
+    localStorage.setItem('dt_lang', 'ru');
+  }
+
+  if (path.startsWith('/en/')) {
+    localStorage.setItem('dt_lang', 'en');
+  }
+
+  if (path.startsWith('/vn/')) {
+    localStorage.setItem('dt_lang', 'vn');
+  }
+
+})();
 
 
-/* ===== CHECKOUT TRACKING ===== */
+// ===== CHECKOUT TRACKING =====
 document.addEventListener('click', function (e) {
 
-if (typeof fbq !== 'function') return;
+  if (typeof fbq !== 'function') return;
 
-const btn = e.target.closest('[data-checkout]');
-if (!btn) return;
+  const btn = e.target.closest('[data-checkout]');
+  if (!btn) return;
 
-const product = btn.dataset.checkout;
+  const product = btn.dataset.checkout;
 
-// ===== CUSTOM EVENTS =====
-fbq('trackCustom', `Checkout_${product.charAt(0).toUpperCase() + product.slice(1)}`);
+  // ===== CUSTOM EVENTS =====
+  fbq('trackCustom', `Checkout_${product.charAt(0).toUpperCase() + product.slice(1)}`);
 
-// ===== STANDARD EVENT =====
-fbq('track', 'InitiateCheckout', {
-content_name: product
+  // ===== STANDARD EVENT =====
+  fbq('track', 'InitiateCheckout', {
+    content_name: product
+  });
+
 });
 
-});
 
-
-/* ===== FRAGMENT TOGGLE ===== */
+// ===== FRAGMENT TOGGLE =====
 document.addEventListener('click', function (e) {
 
-const button = e.target.closest('.fragment-toggle');
-if (!button) return;
+  const button = e.target.closest('.fragment-toggle');
+  if (!button) return;
 
-const content = button.nextElementSibling;
-if (!content) return;
+  const content = button.nextElementSibling;
+  if (!content) return;
 
-content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+  content.style.display = (content.style.display === 'block') ? 'none' : 'block';
 
 });
+
+
+// ===== LIBRARY 7s VIEW TRACK =====
 (function () {
 
   if (typeof fbq !== 'function') return;
 
   const path = window.location.pathname;
 
-  // только библиотека
   if (!path.includes('library')) return;
 
   setTimeout(function () {
@@ -48,7 +68,9 @@ content.style.display = (content.style.display === 'block') ? 'none' : 'block';
   }, 7000);
 
 })();
-// ===== LANGUAGE SAVE =====
+
+
+// ===== LANGUAGE SAVE (click) =====
 document.addEventListener('click', function (e) {
 
   const link = e.target.closest('[data-lang]');
