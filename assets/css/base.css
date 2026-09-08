@@ -293,3 +293,52 @@ background: rgba(255,255,255,0.12);
 .card {
   scroll-margin-top: 80px;
 }
+/* ===== 2026 LIBRARY REFRESH ===== */
+.home-page { max-width: 760px; }
+.home-lead { text-align: center; margin-top: 34px !important; }
+.home-library-preview { margin-top: 44px; }
+.home-note {
+  max-width: 520px;
+  margin: 70px auto 0;
+  padding-top: 34px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  text-align: center;
+}
+.home-note p { font-size: 16px; line-height: 1.7; color: rgba(215,217,221,0.68); }
+
+.library-page { max-width: 900px; }
+.library-header { max-width: 600px; margin: 0 auto 54px; text-align: center; }
+.library-header p { font-size: 16px; color: rgba(215,217,221,0.62); margin-bottom: 0; }
+.bookshelf { display: flex; flex-direction: column; gap: 58px; }
+.book-row {
+  display: grid;
+  grid-template-columns: 220px minmax(0,1fr);
+  gap: 42px;
+  align-items: center;
+  padding-bottom: 58px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  scroll-margin-top: 80px;
+}
+.book-cover { display:block; width:100%; border-radius: 8px; box-shadow: 0 18px 40px rgba(0,0,0,.38); }
+.book-info h2 { font-size: 28px; font-weight: 500; line-height: 1.25; margin: 0 0 18px; }
+.book-summary { font-size: 16px; line-height: 1.65; color: rgba(215,217,221,.76); max-width: 520px; }
+.reading-entry { margin: 28px 0 22px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid rgba(255,255,255,.08); }
+.reading-label { display:block; font-family: Inter,system-ui,sans-serif; font-size: 10px; letter-spacing: .16em; color: rgba(255,255,255,.42); margin-bottom: 8px; }
+.story-link { color:#fff; text-decoration:none; font-size:17px; line-height:1.45; }
+.story-link:hover { border-bottom:1px solid rgba(255,255,255,.35); }
+.book-link { display:inline-block; color:rgba(255,255,255,.62); text-decoration:none; font-size:14px; border-bottom:1px solid rgba(255,255,255,.18); padding-bottom:2px; }
+.book-link:hover { color:#fff; }
+.library-home-link { display:block; width:max-content; margin: 52px auto 0; color:rgba(255,255,255,.45); text-decoration:none; font-size:13px; }
+.library-home-link:hover { color:#fff; }
+
+@media (max-width: 680px) {
+  .container { padding-top: 76px; }
+  .home-page h1, .library-page h1 { font-size: 38px; }
+  .home-lead br { display:none; }
+  .home-note { margin-top: 52px; }
+  .book-row { grid-template-columns: 1fr; gap: 26px; align-items:start; }
+  .book-cover-wrap { width: min(68vw, 260px); margin: 0 auto; }
+  .book-info { text-align:left; }
+  .book-info h2 { font-size:24px; }
+  .bookshelf { gap: 48px; }
+}
