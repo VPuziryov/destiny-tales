@@ -52,13 +52,13 @@
 
 .story-page {
   display: block;
-  width: min(100%, 760px);
+  width: min(100%, 660px);
   height: auto;
   max-height: calc(100vh - 155px);
   object-fit: contain;
   border-radius: 5px;
   box-shadow: 0 24px 60px rgba(0,0,0,.42);
-  background: #fff;
+  background: transparent;
 }
 
 .story-nav {
