@@ -1,0 +1,29 @@
+DESTINY TALES — STORY READER PROTOTYPE
+
+Добавлено:
+1. /ru/samaya-prekrasnaya-skazka.html
+2. /assets/css/story-reader.css
+3. /assets/js/story-reader.js
+4. /assets/img/stories/samaya-prekrasnaya-skazka/story-01.webp ... story-07.webp
+5. В /ru/library.html добавлена кнопка «ЧИТАТЬ ОДИН РАССКАЗ БЕСПЛАТНО» в карточку «Осколков».
+
+Читалка:
+- 7 оригинальных страниц рассказа из PDF, страницы 16–22;
+- стрелки;
+- клавиши Left/Right;
+- свайп на телефоне;
+- тап по левому/правому краю страницы;
+- счетчик;
+- предзагрузка соседних страниц;
+- Meta Pixel custom events:
+  Story_Open
+  Story_50
+  Story_Finished
+  Story_Support_Click
+  Story_Facebook_Click
+
+ПЕРЕД ПУБЛИКАЦИЕЙ заменить в /ru/samaya-prekrasnaya-skazka.html:
+1. href="#" у data-story-support -> Stripe Payment Link
+2. href="#" у data-story-facebook -> URL личного Facebook-поста от 14 сентября
+
+Текст финального блока и заголовка пока рабочий — его можно изменить без затрагивания механики reader.
