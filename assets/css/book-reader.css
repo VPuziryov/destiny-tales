@@ -1,0 +1,150 @@
+/* Destiny Tales — book reader */
+.book-shell {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 76px 16px 56px;
+}
+
+.book-header {
+  max-width: 720px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.book-kicker {
+  margin: 0 0 9px;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.42);
+}
+
+.book-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(30px, 6vw, 48px);
+  letter-spacing: .025em;
+}
+
+.book-meta {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,.48);
+}
+
+.book-reader {
+  position: relative;
+  max-width: 820px;
+  margin: 0 auto;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.book-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 68vh;
+  overflow: hidden;
+}
+
+.book-page {
+  display: block;
+  width: min(100%, 760px);
+  height: auto;
+  max-height: calc(100vh - 155px);
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.42);
+  background: transparent;
+}
+
+.book-nav {
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+  gap: 12px;
+  max-width: 760px;
+  margin: 14px auto 0;
+}
+
+.book-arrow {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 50%;
+  background: rgba(255,255,255,.045);
+  color: rgba(255,255,255,.78);
+  font-size: 27px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.book-arrow:hover:not(:disabled) {
+  background: rgba(255,255,255,.10);
+  color: #fff;
+}
+
+.book-arrow:disabled {
+  opacity: .22;
+  cursor: default;
+}
+
+.book-counter {
+  text-align: center;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  letter-spacing: .10em;
+  color: rgba(255,255,255,.42);
+}
+
+.book-hint {
+  margin: 10px auto 0;
+  text-align: center;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,.32);
+}
+
+.book-end {
+  display: none;
+  max-width: 620px;
+  margin: 42px auto 0;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  text-align: center;
+}
+
+.book-end.is-visible { display: block; }
+
+.book-end-title {
+  margin: 0 0 18px;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  letter-spacing: .16em;
+  color: rgba(255,255,255,.50);
+}
+
+.book-back {
+  display: inline-block;
+  color: rgba(255,255,255,.48);
+  text-decoration: none;
+  font-size: 13px;
+}
+.book-back:hover { color: #fff; }
+
+@media (max-width: 700px) {
+  .book-shell { padding: 64px 8px 42px; }
+  .book-header { padding: 0 12px; margin-bottom: 18px; }
+  .book-stage { min-height: 0; }
+  .book-page {
+    width: 100%;
+    max-height: none;
+    border-radius: 2px;
+    box-shadow: 0 16px 34px rgba(0,0,0,.36);
+  }
+  .book-nav { padding: 0 4px; }
+  .book-hint { padding: 0 14px; }
+}
