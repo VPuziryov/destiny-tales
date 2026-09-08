@@ -366,3 +366,42 @@ background: rgba(255,255,255,0.12);
   text-align: center;
   line-height: 1.7;
 }
+/* ===== HOME ONE SCREEN ===== */
+
+.home-page {
+  padding-top: 72px;
+  padding-bottom: 28px;
+}
+
+.home-page h1 {
+  margin-bottom: 12px;
+}
+
+.home-page .author {
+  margin-bottom: 26px;
+}
+
+.home-lead {
+  max-width: 680px;
+  margin: 0 auto !important;
+  line-height: 1.55;
+}
+
+.home-library-preview {
+  margin-top: 30px;
+}
+
+.home-library-preview .library-image {
+  max-height: 245px;
+  object-fit: cover;
+}
+
+.home-note {
+  margin-top: 38px;
+  padding-top: 24px;
+}
+
+.home-note p {
+  margin-bottom: 18px;
+  line-height: 1.55;
+}
