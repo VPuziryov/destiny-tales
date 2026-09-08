@@ -420,3 +420,6 @@ background: rgba(255,255,255,0.12);
 .home-page .author {
   font-size: 14px;
 }
+main.container > p.home-lead {
+  max-width: 720px;
+}
