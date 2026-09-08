@@ -359,3 +359,10 @@ background: rgba(255,255,255,0.12);
 .home-note {
   max-width: 680px;
 }
+.home-lead {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  line-height: 1.7;
+}
