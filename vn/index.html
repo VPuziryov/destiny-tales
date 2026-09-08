@@ -19,10 +19,10 @@ fbq('track', 'PageView');
 <!-- End Meta Pixel Code -->
 
 <meta charset="UTF-8">
-<title>Ấn bản tiếng Việt · Truy cập miễn phí</title>
+<title>AZIYA. PHỤ NỮ — Ấn bản tiếng Việt</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Một cuốn sách. Ấn bản tiếng Việt. Truy cập miễn phí. Không đăng ký.">
+<meta name="description" content="Một người đàn ông phương Tây viết về phụ nữ, châu Á, sự gần gũi, cô đơn và những điều đôi khi chỉ có thể hiểu được khi nhìn lại. Đọc miễn phí trên Destiny Tales.">
 
 <link rel="canonical" href="https://destiny-tales.ru/vn/">
 
@@ -33,18 +33,141 @@ fbq('track', 'PageView');
 
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://destiny-tales.ru/vn/">
-<meta property="og:title" content="Ấn bản tiếng Việt · Truy cập miễn phí">
-<meta property="og:description" content="Một cuốn sách. Không cần lời hứa. Không cần đăng ký.">
+<meta property="og:title" content="AZIYA. PHỤ NỮ — Vitaly Puziryov">
+<meta property="og:description" content="Một người đàn ông phương Tây viết về phụ nữ, châu Á và những điều không phải lúc nào cũng có thể nói thành lời. Đọc miễn phí.">
 <meta property="og:image" content="https://destiny-tales.ru/assets/img/ui/AW_VN_book_cover.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Ấn bản tiếng Việt · Truy cập miễn phí">
-<meta name="twitter:description" content="Một cuốn sách. Không cần lời hứa.">
+<meta name="twitter:title" content="AZIYA. PHỤ NỮ — Vitaly Puziryov">
+<meta name="twitter:description" content="Một người đàn ông phương Tây viết về phụ nữ, châu Á và những điều không phải lúc nào cũng có thể nói thành lời.">
 <meta name="twitter:image" content="https://destiny-tales.ru/assets/img/ui/AW_VN_book_cover.png">
 
 <link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/book-reader.css">
+
+<style>
+.vn-intro {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 82px 28px 26px;
+  text-align: center;
+}
+
+.vn-kicker {
+  margin: 0 0 14px;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  letter-spacing: .18em;
+  color: rgba(255,255,255,.42);
+}
+
+.vn-intro h1 {
+  margin: 0 0 12px;
+  font-size: clamp(38px, 6vw, 52px);
+}
+
+.vn-intro .author {
+  margin-bottom: 30px;
+}
+
+.vn-hook {
+  max-width: 650px;
+  margin: 0 auto 22px;
+  font-size: 20px;
+  line-height: 1.58;
+  color: rgba(255,255,255,.90);
+}
+
+.vn-context {
+  max-width: 630px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.72;
+  color: rgba(215,217,221,.68);
+}
+
+.vn-context strong {
+  font-weight: 400;
+  color: rgba(255,255,255,.88);
+}
+
+.vn-divider {
+  width: 74px;
+  height: 1px;
+  margin: 30px auto 8px;
+  background: rgba(255,255,255,.12);
+}
+
+.vn-reader-label {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 10px;
+  letter-spacing: .16em;
+  color: rgba(255,255,255,.36);
+}
+
+.book-shell {
+  padding-top: 22px;
+}
+
+.book-header {
+  display: none;
+}
+
+.book-end {
+  max-width: 640px;
+}
+
+.vn-after {
+  display: none;
+}
+
+.book-end.is-visible .vn-after {
+  display: block;
+}
+
+.vn-after p {
+  margin: 18px 0 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: rgba(255,255,255,.48);
+}
+
+.vn-after a {
+  color: rgba(255,255,255,.68);
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,.25);
+}
+
+.vn-after a:hover {
+  color: #fff;
+}
+
+@media (max-width:700px) {
+  .vn-intro {
+    padding: 68px 18px 20px;
+  }
+
+  .vn-hook {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .vn-context {
+    font-size: 15px;
+  }
+
+  .vn-divider {
+    margin-top: 24px;
+  }
+
+  .book-shell {
+    padding-top: 12px;
+  }
+}
+</style>
 
 </head>
 
@@ -55,84 +178,73 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=2268054160345157&ev=PageView&noscript=1"/>
 </noscript>
 
-<main class="container">
+<section class="vn-intro">
 
-<h1>ẤN BẢN TIẾNG VIỆT</h1>
+<p class="vn-kicker">DESTINY TALES · ẤN BẢN TIẾNG VIỆT</p>
 
-<p class="author">
-Một cuốn sách. Truy cập tự do.
+<h1>AZIYA. PHỤ NỮ</h1>
+
+<p class="author">Vitaly Puziryov</p>
+
+<p class="vn-hook">
+“Tôi chưa bao giờ quên bạn.”<br>
+Một người đàn ông phương Tây viết về phụ nữ, châu Á
+và những điều chỉ trở nên rõ ràng sau nhiều năm.
 </p>
 
-<p>
-Không cần đăng ký.<br>
-Không cần giải thích.<br>
-Chỉ là những gì đã xảy ra —<br>
-và được giữ lại như nó đã được viết.
+<p class="vn-context">
+Đây không phải là một cuốn sách dạy cách hiểu phụ nữ.
+Cũng không phải là lời giải thích về châu Á.
+Đó là những ghi chép về <strong>sự gần gũi, cô đơn, lòng biết ơn,
+những lựa chọn và những khoảng lặng</strong> —
+được nhìn lại từ phía bên kia của thời gian.
 </p>
 
-<div class="spacer"></div>
+<div class="vn-divider"></div>
+<p class="vn-reader-label">ĐỌC NGAY · 28 TRANG · MIỄN PHÍ</p>
 
-<div class="grid">
+</section>
 
-<div class="card" id="vn-edition">
+<main class="book-shell">
 
-<h2>Ấn bản tiếng Việt</h2>
+<section class="book-reader"
+         data-book-reader
+         data-book-slug="asia-phu-nu"
+         data-book-base="/assets/img/books/asia-phu-nu"
+         data-book-total="28">
 
-<img src="/assets/img/books/women-cover-vn.png">
+  <div class="book-stage">
+    <img class="book-page" data-book-page
+         src="/assets/img/books/asia-phu-nu/page-01.webp"
+         alt="Trang 1 / 28">
+  </div>
 
-<p>
-Một cuốn sách.<br>
-Không giải thích.<br>
-Không cần chuẩn bị trước.
-</p>
+  <div class="book-nav">
+    <button class="book-arrow" data-book-prev type="button" aria-label="Trang trước">‹</button>
+    <div class="book-counter"><span data-book-current>1</span> / <span data-book-total>28</span></div>
+    <button class="book-arrow" data-book-next type="button" aria-label="Trang tiếp theo">›</button>
+  </div>
 
-<p>
-Chỉ là những gì đã xảy ra —<br>
-và được giữ lại như nó đã được viết.
-</p>
+  <p class="book-hint">Vuốt hoặc dùng các phím mũi tên để chuyển trang</p>
 
-<p>
-Bản tiếng Việt.<br>
-Truy cập tự do.
-</p>
+</section>
 
-<button class="fragment-toggle">ĐOẠN TRÍCH</button>
+<section class="book-end" data-book-end>
+  <p class="book-end-title">HẾT</p>
 
-<div class="fragment-content">
-<p>
-Có những điều không cần phải hiểu ngay.<br>
-Chúng chỉ ở đó —<br>
-và theo thời gian, trở nên rõ ràng.
-</p>
-
-<p>
-Không phải vì ai đó giải thích,<br>
-mà vì bạn đã sống đủ lâu để nhận ra.
-</p>
-</div>
-
-<a class="btn" href="/vn/asia-phu-nu.html">
-ĐỌC SÁCH
-</a>
-
-</div>
-
-</div>
+  <div class="vn-after">
+    <p>
+      Nếu sau khi đọc, bạn muốn để lại vài dòng —
+      <a href="mailto:letters@destiny-tales.ru">letters@destiny-tales.ru</a><br>
+      Không cần đăng ký. Không cần phản hồi.
+    </p>
+  </div>
+</section>
 
 </main>
 
-<div class="afterword">
-<div class="afterword-inner">
-<p>
-Nếu sau khi đọc, bạn muốn để lại vài dòng —<br>
-<a href="mailto:letters@destiny-tales.ru">letters@destiny-tales.ru</a><br>
-<span class="note">Không cần đăng ký. Không cần phản hồi.</span>
-</p>
-</div>
-</div>
-
 <footer class="site-footer">
-© <a href="https://puziryov.com" target="_blank">Vitaly Puziryov</a>
+© <a href="https://puziryov.com" target="_blank" rel="noopener">Vitaly Puziryov</a>
 </footer>
 
 <nav class="lang-switch">
@@ -141,26 +253,8 @@ Nếu sau khi đọc, bạn muốn để lại vài dòng —<br>
 <a href="/vn/">VN</a>
 </nav>
 
-<script>
-document.addEventListener('click', function (e) {
-
-if (typeof fbq !== 'function') return;
-
-const btn = e.target.closest('[data-free-download]');
-if (!btn) return;
-
-/* стандартное событие */
-fbq('track', 'ViewContent', {
-content_name: 'vn_free_book'
-});
-
-/* кастом */
-fbq('trackCustom', 'FreeBookDownload_VN');
-
-});
-</script>
-
-<script src="/assets/js/main.js"></script>
+<script src="/assets/js/book-reader.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
 
 </body>
 </html>
