@@ -1,150 +1,105 @@
-/* Destiny Tales — book reader */
-.book-shell {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 76px 16px 56px;
+
+.book-shell{max-width:1180px;margin:0 auto;padding:0 16px 70px}
+.book-reader{max-width:720px;margin:0 auto}
+.book-stage{position:relative;background:#fff;box-shadow:0 16px 50px rgba(0,0,0,.28);overflow:hidden;touch-action:pan-y}
+.book-page{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.book-nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;margin:16px 0 0}
+.book-arrow{appearance:none;border:0;background:transparent;color:rgba(255,255,255,.82);font-size:46px;line-height:1;cursor:pointer;padding:4px 18px}
+.book-arrow:last-child{justify-self:end}.book-arrow:first-child{justify-self:start}
+.book-arrow:disabled{opacity:.18;cursor:default}
+.book-counter{font:14px/1.3 system-ui,sans-serif;color:rgba(255,255,255,.58)}
+.book-hint{text-align:center;margin:7px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(255,255,255,.36)}
+.book-tools{text-align:center;margin-top:10px}
+.book-start{appearance:none;border:0;background:none;color:rgba(255,255,255,.48);font:12px/1.4 system-ui,sans-serif;cursor:pointer;padding:7px 12px}
+.book-start:hover{color:rgba(255,255,255,.8)}
+.book-mid-actions{display:none;max-width:620px;margin:22px auto 0;text-align:center}
+.book-mid-actions.is-visible{display:block}
+.book-action-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.book-action{display:inline-block;border:1px solid rgba(255,255,255,.18);padding:11px 16px;color:rgba(255,255,255,.72);text-decoration:none;font:12px/1.3 system-ui,sans-serif;letter-spacing:.04em}
+.book-action:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.book-end{display:none;max-width:620px;margin:38px auto 0;text-align:center}
+.book-end.is-visible{display:block}
+.book-end-title{font:24px/1.2 Georgia,serif;letter-spacing:.14em;color:rgba(255,255,255,.86);margin:0 0 24px}
+.book-end p{margin:0 auto 18px;max-width:500px;font:15px/1.65 Georgia,serif;color:rgba(215,217,221,.68)}
+.book-restart{margin-top:16px;appearance:none;background:none;border:0;color:rgba(255,255,255,.55);font:12px/1.4 system-ui,sans-serif;cursor:pointer;padding:8px 12px}
+.book-restart:hover{color:#fff}
+@media(max-width:700px){
+ .book-shell{padding-left:0;padding-right:0}
+ .book-reader{max-width:none}
+ .book-stage{box-shadow:none}
+ .book-action-row{flex-direction:column;align-items:stretch;padding:0 18px}
+ .book-action{text-align:center}
 }
 
-.book-header {
-  max-width: 720px;
-  margin: 0 auto 24px;
-  text-align: center;
+
+.book-tools{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
 }
-
-.book-kicker {
-  margin: 0 0 9px;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  font-size: 11px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,.42);
+.book-toc-toggle{
+  appearance:none;
+  border:0;
+  background:none;
+  color:rgba(255,255,255,.48);
+  font:12px/1.4 system-ui,sans-serif;
+  cursor:pointer;
+  padding:7px 12px;
 }
-
-.book-header h1 {
-  margin: 0 0 8px;
-  font-size: clamp(30px, 6vw, 48px);
-  letter-spacing: .025em;
+.book-toc-toggle:hover{color:rgba(255,255,255,.8)}
+.book-toc{
+  max-width:620px;
+  margin:10px auto 0;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(21,24,29,.98);
 }
-
-.book-meta {
-  margin: 0;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  font-size: 13px;
-  color: rgba(255,255,255,.48);
+.book-toc[hidden]{display:none}
+.book-toc-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 14px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+  color:rgba(255,255,255,.68);
+  font:12px/1.4 system-ui,sans-serif;
+  letter-spacing:.06em;
 }
-
-.book-reader {
-  position: relative;
-  max-width: 820px;
-  margin: 0 auto;
-  touch-action: pan-y;
-  user-select: none;
+.book-toc-close{
+  appearance:none;
+  border:0;
+  background:none;
+  color:rgba(255,255,255,.5);
+  font-size:22px;
+  line-height:1;
+  cursor:pointer;
+  padding:0 2px;
 }
-
-.book-stage {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 68vh;
-  overflow: hidden;
+.book-toc-list{display:flex;flex-direction:column}
+.book-toc-item{
+  appearance:none;
+  width:100%;
+  border:0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+  background:none;
+  color:rgba(255,255,255,.76);
+  padding:12px 14px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  justify-content:space-between;
+  text-align:left;
+  cursor:pointer;
+  font:14px/1.4 Georgia,serif;
 }
-
-.book-page {
-  display: block;
-  width: min(100%, 760px);
-  height: auto;
-  max-height: calc(100vh - 155px);
-  object-fit: contain;
-  border-radius: 4px;
-  box-shadow: 0 24px 60px rgba(0,0,0,.42);
-  background: transparent;
+.book-toc-item:last-child{border-bottom:0}
+.book-toc-item:hover{background:rgba(255,255,255,.035);color:#fff}
+.book-toc-item small{
+  flex:0 0 auto;
+  color:rgba(255,255,255,.34);
+  font:11px/1.5 system-ui,sans-serif;
 }
-
-.book-nav {
-  display: grid;
-  grid-template-columns: 56px 1fr 56px;
-  align-items: center;
-  gap: 12px;
-  max-width: 760px;
-  margin: 14px auto 0;
-}
-
-.book-arrow {
-  width: 46px;
-  height: 46px;
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 50%;
-  background: rgba(255,255,255,.045);
-  color: rgba(255,255,255,.78);
-  font-size: 27px;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.book-arrow:hover:not(:disabled) {
-  background: rgba(255,255,255,.10);
-  color: #fff;
-}
-
-.book-arrow:disabled {
-  opacity: .22;
-  cursor: default;
-}
-
-.book-counter {
-  text-align: center;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  font-size: 12px;
-  letter-spacing: .10em;
-  color: rgba(255,255,255,.42);
-}
-
-.book-hint {
-  margin: 10px auto 0;
-  text-align: center;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  font-size: 11px;
-  color: rgba(255,255,255,.32);
-}
-
-.book-end {
-  display: none;
-  max-width: 620px;
-  margin: 42px auto 0;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,.08);
-  text-align: center;
-}
-
-.book-end.is-visible { display: block; }
-
-.book-end-title {
-  margin: 0 0 18px;
-  font-family: Inter, system-ui, -apple-system, sans-serif;
-  font-size: 12px;
-  letter-spacing: .16em;
-  color: rgba(255,255,255,.50);
-}
-
-.book-back {
-  display: inline-block;
-  color: rgba(255,255,255,.48);
-  text-decoration: none;
-  font-size: 13px;
-}
-.book-back:hover { color: #fff; }
-
-@media (max-width: 700px) {
-  .book-shell { padding: 64px 8px 42px; }
-  .book-header { padding: 0 12px; margin-bottom: 18px; }
-  .book-stage { min-height: 0; }
-  .book-page {
-    width: 100%;
-    max-height: none;
-    border-radius: 2px;
-    box-shadow: 0 16px 34px rgba(0,0,0,.36);
-  }
-  .book-nav { padding: 0 4px; }
-  .book-hint { padding: 0 14px; }
+@media(max-width:700px){
+  .book-toc{margin-left:14px;margin-right:14px}
+  .book-toc-item{padding:13px 12px}
 }

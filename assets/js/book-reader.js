@@ -1,103 +1,83 @@
-(function () {
-  const reader = document.querySelector('[data-book-reader]');
-  if (!reader) return;
 
-  const img = reader.querySelector('[data-book-page]');
-  const prev = reader.querySelector('[data-book-prev]');
-  const next = reader.querySelector('[data-book-next]');
-  const currentEl = reader.querySelector('[data-book-current]');
-  const totalEl = reader.querySelector('[data-book-total]');
-  const endBlock = document.querySelector('[data-book-end]');
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.querySelector('[data-book-reader]');
+  if (!root) return;
+  const img = root.querySelector('[data-book-page]');
+  const prev = root.querySelector('[data-book-prev]');
+  const next = root.querySelector('[data-book-next]');
+  const curEl = root.querySelector('[data-book-current]');
+  const total = Number(root.dataset.bookTotal || 1);
+  const base = root.dataset.bookBase;
+  const slug = root.dataset.bookSlug || 'book';
+  const mid = document.querySelector('[data-book-mid-actions]');
+  const end = document.querySelector('[data-book-end]');
+  const starts = document.querySelectorAll('[data-book-start]');
+  let current = 1, sx = 0, sy = 0;
+  const fired = new Set();
 
-  const base = reader.dataset.bookBase;
-  const total = Number(reader.dataset.bookTotal || 1);
-  const slug = reader.dataset.bookSlug || 'book';
-  let current = 1;
-  let touchStartX = null;
-  const milestones = new Set();
-
-  const srcFor = (n) => `${base}/page-${String(n).padStart(2, '0')}.webp`;
-
-  function track(eventName, params) {
-    if (typeof fbq === 'function') fbq('trackCustom', eventName, params || {});
+  const srcFor = n => `${base}/page-${String(n).padStart(2,'0')}.webp`;
+  function track(name, data={}) {
+    if (typeof fbq === 'function') fbq('trackCustom', name, Object.assign({book:slug}, data));
   }
-
-  function preload(n) {
-    if (n < 1 || n > total) return;
-    const preloadImg = new Image();
-    preloadImg.src = srcFor(n);
-  }
-
-  function fireMilestone(percent, eventName) {
-    if (milestones.has(percent)) return;
-    const threshold = Math.ceil(total * percent / 100);
-    if (current >= threshold) {
-      milestones.add(percent);
-      track(eventName, { book: slug, page: current, total: total });
+  function milestone() {
+    const pct = current / total;
+    [['Book_VN_25',.25],['Book_VN_50',.50],['Book_VN_75',.75]].forEach(([n,t])=>{
+      if (pct >= t && !fired.has(n)) { fired.add(n); track(n,{page:current,total}); }
+    });
+    if (current === total && !fired.has('Book_VN_Finished')) {
+      fired.add('Book_VN_Finished'); track('Book_VN_Finished',{page:current,total});
     }
   }
-
-  function render() {
+  function render(scroll=false) {
     img.src = srcFor(current);
     img.alt = `Trang ${current} / ${total}`;
-    currentEl.textContent = current;
-    totalEl.textContent = total;
-    prev.disabled = current === 1;
-    next.disabled = current === total;
+    curEl.textContent = current;
+    prev.disabled = current <= 1;
+    next.disabled = current >= total;
+    if (mid) mid.classList.toggle('is-visible', current >= 6);
+    if (end) end.classList.toggle('is-visible', current === total);
+    milestone();
+    [current+1,current-1].filter(n=>n>=1&&n<=total).forEach(n=>{ const p=new Image(); p.src=srcFor(n); });
+    if (scroll) root.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function go(n, scroll=false){ current=Math.max(1,Math.min(total,n)); render(scroll); }
+  prev.addEventListener('click',()=>go(current-1));
+  next.addEventListener('click',()=>go(current+1));
+  starts.forEach(b=>b.addEventListener('click',()=>go(1,true)));
 
-    preload(current + 1);
-    preload(current - 1);
+  const toc = document.querySelector('[data-book-toc]');
+  const tocToggle = document.querySelector('[data-book-toc-toggle]');
+  const tocClose = document.querySelector('[data-book-toc-close]');
+  const tocItems = document.querySelectorAll('[data-book-goto]');
 
-    fireMilestone(25, 'Book_VN_25');
-    fireMilestone(50, 'Book_VN_50');
-    fireMilestone(75, 'Book_VN_75');
+  function setToc(open) {
+    if (!toc) return;
+    toc.hidden = !open;
+    if (tocToggle) tocToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
 
-    if (current === total) {
-      if (endBlock) endBlock.classList.add('is-visible');
-      if (!milestones.has(100)) {
-        milestones.add(100);
-        track('Book_VN_Finished', { book: slug, page: current, total: total });
-      }
-    } else if (endBlock) {
-      endBlock.classList.remove('is-visible');
+  if (tocToggle) tocToggle.addEventListener('click', () => setToc(toc ? toc.hidden : false));
+  if (tocClose) tocClose.addEventListener('click', () => setToc(false));
+  tocItems.forEach(item => item.addEventListener('click', () => {
+    const page = Number(item.dataset.bookGoto || 1);
+    setToc(false);
+    go(page, true);
+  }));
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft') go(current-1);
+    if(e.key==='ArrowRight') go(current+1);
+  });
+  const stage=root.querySelector('.book-stage');
+  stage.addEventListener('touchstart',e=>{ const t=e.changedTouches[0]; sx=t.clientX; sy=t.clientY; },{passive:true});
+  stage.addEventListener('touchend',e=>{
+    const t=e.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0?go(current+1):go(current-1); return; }
+    if(Math.abs(dx)<12 && Math.abs(dy)<12){
+      const r=stage.getBoundingClientRect(), x=t.clientX-r.left;
+      if(x<r.width/3) go(current-1); else if(x>r.width*2/3) go(current+1);
     }
-  }
-
-  function go(delta) {
-    const nextPage = Math.max(1, Math.min(total, current + delta));
-    if (nextPage === current) return;
-    current = nextPage;
-    render();
-  }
-
-  prev.addEventListener('click', () => go(-1));
-  next.addEventListener('click', () => go(1));
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') go(-1);
-    if (e.key === 'ArrowRight') go(1);
-  });
-
-  reader.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].clientX;
-  }, { passive: true });
-
-  reader.addEventListener('touchend', (e) => {
-    if (touchStartX === null) return;
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    touchStartX = null;
-    if (Math.abs(dx) < 45) return;
-    if (dx < 0) go(1);
-    else go(-1);
-  }, { passive: true });
-
-  img.addEventListener('click', (e) => {
-    const rect = img.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    if (x < rect.width * 0.32) go(-1);
-    if (x > rect.width * 0.68) go(1);
-  });
-
-  track('Book_VN_Open', { book: slug, total: total });
+  },{passive:true});
+  track('Book_VN_Open',{total});
   render();
-})();
+});
