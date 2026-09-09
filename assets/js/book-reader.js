@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     curEl.textContent = current;
     prev.disabled = current <= 1;
     next.disabled = current >= total;
-    if (mid) mid.classList.toggle('is-visible', current >= 6);
+    if (mid) mid.classList.toggle('is-visible', current >= 6 && current < total);
     if (end) end.classList.toggle('is-visible', current === total);
     milestone();
     [current+1,current-1].filter(n=>n>=1&&n<=total).forEach(n=>{ const p=new Image(); p.src=srcFor(n); });
