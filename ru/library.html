@@ -24,6 +24,63 @@ fbq('track', 'PageView');
 
 <link rel="stylesheet" href="/assets/css/base.css">
 
+
+<style>
+.book-open-note {
+  margin: 24px 0 12px;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: .16em;
+  color: rgba(215,217,221,.48);
+}
+
+.book-read-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 190px;
+  padding: 12px 18px;
+  border: 1px solid rgba(215,217,221,.28);
+  color: #F0F1F3;
+  background: rgba(255,255,255,.018);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: .12em;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease,
+              color .2s ease, transform .2s ease;
+}
+
+.book-read-button span {
+  font-size: 16px;
+  line-height: 0;
+  transform: translateY(-1px);
+}
+
+.book-read-button:hover {
+  color: #fff;
+  background: rgba(255,255,255,.055);
+  border-color: rgba(240,241,243,.5);
+  transform: translateY(-1px);
+}
+
+.book-read-button:focus-visible {
+  outline: 1px solid rgba(240,241,243,.75);
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .book-open-note { margin-top: 20px; }
+  .book-read-button {
+    min-width: 0;
+    padding: 12px 16px;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -71,10 +128,10 @@ src="https://www.facebook.com/tr?id=2268054160345157&ev=PageView&noscript=1"/>
       Азия как место, где привычные роли становятся легче — а человек неожиданно остаётся перед собственным отражением.
     </p>
 
-    <p class="book-open-note">Книга открыта полностью.</p>
+    <p class="book-open-note">КНИГА ОТКРЫТА ПОЛНОСТЬЮ</p>
 
-    <a class="book-link book-link-read" href="/ru/asia-women.html">
-      ЧИТАТЬ «АЗИЯ. ЖЕНЩИНЫ» →
+    <a class="book-read-button" href="/ru/asia-women.html">
+      ЧИТАТЬ КНИГУ <span aria-hidden="true">→</span>
     </a>
   </div>
 </article>
