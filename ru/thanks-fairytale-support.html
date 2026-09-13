@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Спасибо за поддержку — Destiny Tales</title>
+  <meta name="description" content="Спасибо за поддержку автора. Сохраните «Самую прекрасную сказку о настоящей любви» в PDF и продолжите чтение на Destiny Tales.">
+  <meta name="robots" content="noindex,follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Спасибо за поддержку — Destiny Tales">
+  <meta property="og:description" content="Сохраните «Самую прекрасную сказку о настоящей любви» в PDF.">
+  <meta property="og:image" content="/assets/img/og/samaya-prekrasnaya-skazka-og.jpg">
+
+  <style>
+    :root{
+      --bg:#071522;
+      --bg2:#0d2233;
+      --text:#f5f1e8;
+      --muted:#c8d0d8;
+      --line:rgba(255,255,255,.14);
+      --gold:#e7c992;
+      --gold2:#f4ddb2;
+      --card:rgba(8,22,34,.82);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:Georgia,"Times New Roman",serif}
+    body{min-height:100vh}
+    .wrap{width:min(920px,92vw);margin:0 auto;padding:34px 0 54px}
+    .brand{text-align:center;letter-spacing:.22em;font-size:15px;color:#e9edf0;text-transform:uppercase;margin-bottom:18px}
+    .subbrand{text-align:center;letter-spacing:.12em;font-size:11px;color:#aab7c1;text-transform:uppercase;margin-top:-10px;margin-bottom:26px}
+    .hero{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#0d1d2b;box-shadow:0 18px 50px rgba(0,0,0,.32)}
+    .hero img{display:block;width:100%;height:auto}
+    .card{margin-top:24px;padding:34px 28px 30px;border:1px solid var(--line);border-radius:18px;background:var(--card);text-align:center;box-shadow:0 18px 45px rgba(0,0,0,.22)}
+    h1{font-size:clamp(30px,5vw,48px);line-height:1.08;margin:0 0 18px;font-weight:500}
+    p{font-family:Arial,Helvetica,sans-serif;font-size:17px;line-height:1.65;color:var(--muted);max-width:680px;margin:0 auto 18px}
+    .story{font-family:Georgia,"Times New Roman",serif;color:var(--text);font-size:19px;line-height:1.55;margin:4px auto 26px}
+    .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 22px;border-radius:999px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;transition:.2s ease}
+    .btn-primary{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1b2430;box-shadow:0 8px 20px rgba(231,201,146,.18)}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-secondary{border:1px solid rgba(255,255,255,.2);color:#edf2f5;background:rgba(255,255,255,.04)}
+    .btn-secondary:hover{background:rgba(255,255,255,.08)}
+    .small{font-size:13px;color:#91a0ab;margin-top:22px}
+    .rule{width:72px;height:1px;background:var(--line);margin:28px auto}
+    footer{text-align:center;color:#81909c;font-family:Arial,Helvetica,sans-serif;font-size:12px;margin-top:28px}
+    @media (max-width:640px){
+      .wrap{width:min(94vw,920px);padding-top:18px}
+      .card{padding:28px 18px 24px}
+      p{font-size:16px}
+      .actions{flex-direction:column}
+      .btn{width:100%}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="brand">DESTINY TALES</div>
+    <div class="subbrand">свободное чтение</div>
+
+    <section class="hero">
+      <img src="/assets/img/og/samaya-prekrasnaya-skazka-og.jpg"
+           alt="Самая прекрасная сказка о настоящей любви">
+    </section>
+
+    <section class="card">
+      <h1>Спасибо за поддержку</h1>
+
+      <p class="story">
+        Эта сказка была написана много лет назад.<br>
+        Если вам захотелось сохранить её — пусть останется с вами.
+      </p>
+
+      <p>
+        Ваша поддержка помогает мне открывать следующие истории и сохранять Destiny Tales свободным для чтения.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary"
+           href="/assets/pdf/samaya-prekrasnaya-skazka.pdf"
+           download>
+          Скачать сказку в PDF
+        </a>
+
+        <a class="btn btn-secondary"
+           href="/ru/library.html">
+          Продолжить читать
+        </a>
+      </div>
+
+      <div class="rule"></div>
+
+      <p class="small">«Самая прекрасная сказка о настоящей любви» · Виталий Пузырёв · 2006</p>
+    </section>
+
+    <footer>© Destiny Tales</footer>
+  </main>
+</body>
+</html>
