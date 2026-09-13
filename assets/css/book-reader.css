@@ -103,3 +103,97 @@
   .book-toc{margin-left:14px;margin-right:14px}
   .book-toc-item{padding:13px 12px}
 }
+
+
+/* =========================================================
+   DESKTOP READER
+   На телефоне ничего не меняем.
+   На компьютере страница целиком помещается в окно,
+   а стрелки находятся по бокам страницы.
+   ========================================================= */
+@media (min-width: 901px) {
+  .book-shell{
+    padding-top:18px;
+  }
+
+  .book-reader{
+    position:relative;
+    width:min(520px, 42vh, 55vw);
+    max-width:none;
+    margin:0 auto;
+  }
+
+  .book-stage{
+    width:100%;
+    aspect-ratio:9 / 16;
+    background:transparent;
+    box-shadow:none;
+    overflow:hidden;
+  }
+
+  .book-page{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    box-shadow:0 16px 50px rgba(0,0,0,.28);
+  }
+
+  .book-nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:30px;
+    margin:12px 0 0;
+  }
+
+  .book-arrow{
+    position:absolute;
+    top:calc((100% - 92px) / 2);
+    transform:translateY(-50%);
+    z-index:5;
+    width:50px;
+    height:76px;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:3px;
+    background:rgba(21,24,29,.55);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    transition:background .18s ease,border-color .18s ease,opacity .18s ease;
+  }
+
+  .book-arrow:first-child{
+    left:-68px;
+  }
+
+  .book-arrow:last-child{
+    right:-68px;
+  }
+
+  .book-arrow:hover:not(:disabled){
+    background:rgba(255,255,255,.08);
+    border-color:rgba(255,255,255,.18);
+  }
+
+  .book-counter{
+    text-align:center;
+  }
+
+  .book-hint{
+    margin-top:4px;
+  }
+
+  .book-tools{
+    margin-top:5px;
+  }
+}
+
+/* На более узком ноутбуке стрелки не должны вылезать за экран */
+@media (min-width:901px) and (max-width:1050px){
+  .book-arrow:first-child{left:-54px}
+  .book-arrow:last-child{right:-54px}
+  .book-arrow{width:42px}
+}
