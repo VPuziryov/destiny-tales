@@ -30,7 +30,7 @@
 
   function render() {
     img.src = srcFor(current);
-    img.alt = `Страница ${current} из ${total}`;
+    img.alt = `Самая прекрасная сказка о настоящей любви — страница ${current} из ${total}`;
     currentEl.textContent = current;
     totalEl.textContent = total;
     prev.disabled = current === 1;

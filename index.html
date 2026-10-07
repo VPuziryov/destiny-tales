@@ -2,15 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Destiny Tales</title>
-  <meta name="robots" content="noindex, nofollow">
+  <meta name="robots" content="noindex, follow">
   <script>
     (function () {
 
-      const savedLang = localStorage.getItem('dt_lang');
+      let savedLang;
+      try { savedLang = localStorage.getItem('dt_lang'); } catch (_) {}
 
       // если язык уже выбран — используем его
-      if (savedLang) {
+      if (['ru', 'en', 'vn'].includes(savedLang)) {
         location.replace('/' + savedLang + '/');
         return;
       }
@@ -33,5 +35,5 @@
     })();
   </script>
 </head>
-<body></body>
+<body><nav aria-label="Language"><a href="/ru/">Русский</a> · <a href="/en/">English</a> · <a href="/vn/">Tiếng Việt</a></nav></body>
 </html>
