@@ -1,0 +1,15 @@
+.book-text-shell{box-sizing:border-box;max-width:780px;margin:0 auto;padding:72px 24px 48px}
+.book-text-header{text-align:center;margin-bottom:32px}
+.book-text-header h1{font-size:clamp(30px,6vw,48px);line-height:1.2;margin:12px 0}
+.book-text-kicker{font:11px/1.6 Inter,system-ui,sans-serif;letter-spacing:.12em;color:rgba(255,255,255,.48)}
+.book-text-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 20px;font:14px/1.7 Inter,system-ui,sans-serif;margin:24px 0}
+.book-text-links a,.book-text-toc a{color:inherit;text-underline-offset:4px}
+.book-text-toc{margin:32px 0 48px;padding:20px 24px;border:1px solid rgba(255,255,255,.12);border-radius:4px}
+.book-text-toc h2{font-size:22px;margin:0 0 16px;letter-spacing:normal}
+.book-text-toc ol{padding-left:22px;margin:0;line-height:1.8}
+.book-text-toc li{margin:8px 0}
+.book-text{font-size:clamp(18px,2.5vw,21px);line-height:1.75;overflow-wrap:break-word}
+.book-text p{margin:1.15em 0}
+.book-text h2{font-size:clamp(24px,4vw,32px);line-height:1.35;letter-spacing:normal;margin:2.5em 0 1em;scroll-margin-top:24px}
+.book-text a:focus-visible,.book-text-links a:focus-visible,.book-text-toc a:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+@media(max-width:600px){.book-text-shell{padding:48px 18px 32px}.book-text-toc{padding:18px}.book-text-header h1{letter-spacing:.02em}}

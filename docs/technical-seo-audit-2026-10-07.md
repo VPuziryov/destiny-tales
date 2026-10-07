@@ -68,3 +68,7 @@ A small static HTML/CSS/JavaScript site served by Netlify behind Cloudflare. No 
 - Schema.org ShortStory: https://schema.org/ShortStory
 
 The public text alternative provides genuine reading/accessibility value and preserves the image reader. It is not hidden text for search engines.
+
+## Follow-up: Russian Asia book text edition
+
+At the author's request, added `/ru/asia-women-text.html` with all seven chapters from the already-published `/assets/pdf/asia-women-ru.pdf`. Removed PDF layout wrapping and rejoined line-broken hyphenated words only; wording and punctuation retained. A small text-version link sits within the existing reader controls. The image reader, its scripts, assets, introduction, support actions and order of existing blocks are retained. The new page includes visible chapter navigation, links back, PDF download, original metadata/Book schema with its own URL, and a scoped responsive stylesheet. Added its canonical URL to sitemap. Removed the redundant second Book schema block introduced by the first audit; preserved the richer original schema. Vietnamese content was not changed.
